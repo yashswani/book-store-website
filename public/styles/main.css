@@ -1,0 +1,494 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Georgia, "Times New Roman", serif;
+    background: #fff5f8;
+    color: #3b2630;
+    min-height: 100vh;
+    line-height: 1.6;
+}
+
+nav {
+    width: 100%;
+    padding: 22px 60px;
+    background: #fffafb;
+    border-bottom: 1px solid #f0c9d6;
+    display: flex;
+    justify-content: space-between;
+    gap: 34px;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 800;
+    color: #3b2630;
+}
+
+.nav-links {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+nav a {
+    color: #4a2634;
+    text-decoration: none;
+    font-size: 18px;
+    font-weight: 700;
+}
+
+nav a:hover {
+    color: #c44f7c;
+}
+
+.hero {
+    max-width: 1180px;
+    margin: 36px auto 28px;
+    padding: 0 20px;
+}
+
+.hero-content {
+    background:
+        linear-gradient(90deg, rgba(255, 250, 251, 0.95), rgba(255, 229, 238, 0.9)),
+        url("https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=1200&q=80");
+    background-size: cover;
+    background-position: center;
+    border: 1px solid #f0c9d6;
+    border-radius: 28px;
+    padding: 64px;
+    box-shadow: 0 12px 28px rgba(158, 64, 102, 0.12);
+}
+
+.hero h1 {
+    font-size: 48px;
+    line-height: 1.1;
+    color: #3b2630;
+    margin-bottom: 16px;
+}
+
+.hero p {
+    max-width: 620px;
+    font-size: 19px;
+    color: #5c4550;
+    margin-bottom: 28px;
+}
+
+.hero-btn,
+.empty-state a {
+    display: inline-block;
+    padding: 13px 24px;
+    background: #d45f8b;
+    color: white;
+    text-decoration: none;
+    border-radius: 12px;
+    font-weight: 700;
+}
+
+.hero-btn:hover,
+.empty-state a:hover {
+    background: #b93d6c;
+}
+
+.stats-section {
+    max-width: 1180px;
+    margin: 0 auto 28px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.stat-card {
+    background: #fffafb;
+    border: 1px solid #f0c9d6;
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 8px 20px rgba(158, 64, 102, 0.1);
+}
+
+.stat-card h3 {
+    font-size: 16px;
+    color: #9b5a74;
+    margin-bottom: 8px;
+}
+
+.stat-card p {
+    font-size: 28px;
+    font-weight: 800;
+    color: #3b2630;
+}
+
+.sort-form {
+    max-width: 1180px;
+    margin: 32px auto 22px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+.sort-form::before {
+    content: "Sort by:";
+    font-size: 18px;
+    font-weight: 700;
+    color: #4a2634;
+    margin-right: 8px;
+}
+
+.sort-form button {
+    padding: 11px 20px;
+    border: 1px solid #e5a9bd;
+    background: #fffafb;
+    color: #4a2634;
+    border-radius: 12px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.sort-form button:hover {
+    background: #d45f8b;
+    color: white;
+    border-color: #d45f8b;
+}
+
+.books-grid {
+    max-width: 1180px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 26px;
+}
+
+.book-card {
+    background: #fffafb;
+    border: 1px solid #f0c9d6;
+    border-radius: 22px;
+    padding: 24px;
+    box-shadow: 0 10px 24px rgba(158, 64, 102, 0.12);
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 14px 30px rgba(158, 64, 102, 0.18);
+}
+
+.book-cover {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    border-radius: 16px;
+    box-shadow: 0 8px 18px rgba(70, 35, 50, 0.18);
+    margin-bottom: 20px;
+}
+
+.book-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.book-info h2 {
+    font-size: 27px;
+    line-height: 1.2;
+    color: #3b2630;
+    margin-bottom: 6px;
+}
+
+.book-author {
+    color: #a84e72;
+    font-weight: 700;
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.stars {
+    color: #f0a22e;
+    font-size: 20px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.book-rating,
+.book-date {
+    font-size: 16px;
+    color: #5c4550;
+    margin-bottom: 8px;
+}
+
+.book-review {
+    font-size: 16px;
+    color: #3f3338;
+    margin: 10px 0 20px;
+    flex: 1;
+}
+
+.book-actions {
+    display: flex;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.card-action-form {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    box-shadow: none;
+    display: inline-block;
+}
+
+.edit-btn,
+.delete-btn {
+    padding: 10px 22px;
+    border-radius: 10px;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.edit-btn {
+    background: #d45f8b;
+    color: white;
+    border: 1px solid #d45f8b;
+}
+
+.edit-btn:hover {
+    background: #b93d6c;
+}
+
+.delete-btn {
+    background: #fffafb;
+    color: #c5224f;
+    border: 1px solid #ef8fa8;
+}
+
+.delete-btn:hover {
+    background: #c5224f;
+    color: white;
+}
+
+.form-header {
+    max-width: 720px;
+    margin: 48px auto 0;
+    padding: 0 20px;
+}
+
+.form-header h1 {
+    font-size: 40px;
+    color: #3b2630;
+}
+
+.form-header p {
+    font-size: 18px;
+    color: #6b5260;
+}
+
+.page-form {
+    max-width: 720px;
+    margin: 24px auto 60px;
+    background: #fffafb;
+    padding: 36px;
+    border-radius: 22px;
+    border: 1px solid #f0c9d6;
+    box-shadow: 0 10px 24px rgba(158, 64, 102, 0.12);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.page-form label {
+    font-weight: 700;
+    color: #4a2634;
+    margin-top: 8px;
+}
+
+.page-form input,
+.page-form textarea {
+    padding: 13px 15px;
+    border: 1px solid #e5a9bd;
+    border-radius: 12px;
+    font-size: 16px;
+    background: white;
+    color: #3b2630;
+}
+
+.page-form textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+.page-form button {
+    margin-top: 18px;
+    padding: 13px 20px;
+    background: #d45f8b;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+.page-form button:hover {
+    background: #b93d6c;
+}
+
+.reviews-section,
+.about-section {
+    max-width: 1100px;
+    margin: 50px auto;
+    padding: 0 25px;
+}
+
+.reviews-section h1,
+.about-section h1 {
+    font-size: 42px;
+    color: #3b2630;
+    margin-bottom: 8px;
+}
+
+.reviews-section > p,
+.about-section p {
+    color: #6b5260;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+
+.reviews-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.review-card {
+    background: #fffafb;
+    border: 1px solid #f0c9d6;
+    border-left: 6px solid #d45f8b;
+    border-radius: 22px;
+    padding: 26px;
+    box-shadow: 0 10px 24px rgba(158, 64, 102, 0.12);
+}
+
+.review-card h2 {
+    color: #3b2630;
+    margin-bottom: 8px;
+    font-size: 25px;
+}
+
+.review-date {
+    font-size: 14px;
+    color: #9b6c7e;
+    margin-bottom: 18px;
+}
+
+.review-card h3 {
+    margin-top: 18px;
+    margin-bottom: 6px;
+    color: #c44f7c;
+}
+
+.review-card p {
+    color: #4b3942;
+}
+
+.empty-state {
+    max-width: 700px;
+    margin: 60px auto;
+    text-align: center;
+    background: #fffafb;
+    border: 1px solid #f0c9d6;
+    border-radius: 24px;
+    padding: 50px 30px;
+    box-shadow: 0 10px 24px rgba(158, 64, 102, 0.12);
+}
+
+.empty-state h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.empty-state p {
+    font-size: 18px;
+    margin-bottom: 24px;
+    color: #6b5260;
+}
+
+footer {
+    text-align: center;
+    padding: 28px 20px;
+    color: #8b6374;
+    border-top: 1px solid #f0c9d6;
+    background: #fffafb;
+    margin-top: 60px;
+}
+
+@media (max-width: 1000px) {
+    .books-grid,
+    .reviews-container,
+    .stats-section {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 40px;
+    }
+}
+
+@media (max-width: 650px) {
+    nav {
+        padding: 18px 24px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .nav-links {
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+    nav a {
+        font-size: 16px;
+    }
+
+    .hero-content {
+        padding: 36px 26px;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .books-grid,
+    .reviews-container,
+    .stats-section {
+        grid-template-columns: 1fr;
+    }
+
+    .book-cover {
+        height: 360px;
+    }
+
+    .sort-form {
+        margin: 25px 20px;
+        padding: 0;
+    }
+
+    .page-form {
+        margin: 24px 20px 50px;
+        padding: 26px;
+    }
+}

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Reviews</title>
+    <link rel="stylesheet" href="/styles/main.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">📚 Book Notes</div>
+
+        <div class="nav-links">
+            <a href="/">Home</a>
+            <a href="/add">Add Book</a>
+            <a href="/reviews">My Reviews</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <section class="reviews-section">
+        <h1>My Book Reviews</h1>
+        <p>All the reviews and notes I have written for books.</p>
+
+        <% if (reviews.length === 0) { %>
+            <div class="empty-state">
+                <h2>No reviews yet</h2>
+                <p>Add a book to start writing reviews and notes.</p>
+                <a href="/add">Add Book</a>
+            </div>
+        <% } else { %>
+            <div class="reviews-container">
+                <% reviews.forEach((book) => { %>
+                    <div class="review-card">
+                        <h2><%= book.title %></h2>
+
+                        <p class="review-date">
+                            Written on:
+                            <%= book.created_at ? book.created_at.toLocaleDateString("en-IN", {
+                                day: "numeric",
+                                month: "long",
+                                year: "numeric"
+                            }) : "No date added" %>
+                        </p>
+
+                        <h3>Review</h3>
+                        <p><%= book.review %></p>
+
+                        <h3>Notes</h3>
+                        <p><%= book.notes %></p>
+                    </div>
+                <% }) %>
+            </div>
+        <% } %>
+    </section>
+
+    <footer>
+        Made with Node.js, Express, EJS, PostgreSQL and Open Library Covers API.
+    </footer>
+</body>
+</html>
